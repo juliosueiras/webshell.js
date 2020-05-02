@@ -13,7 +13,9 @@
     "coverage": "istanbul cover _mocha",
     "pretest": "npm run --silent linter",
     "dist": "browserify src/view/browser.js --s createWebshell -p licensify -o dist/webshell.js -t  [ babelify --presets [ es2015-script ] ]",
-    "dist-watch": "watchify src/view/browser.js --s createWebshell -p licensify -o dist/webshell.js -t  [ babelify --presets [ es2015-script ] ]"
+    "dist-watch": "watchify src/view/browser.js --s createWebshell -p licensify -o dist/webshell.js -t  [ babelify --presets [ es2015-script ] ]",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "devDependencies": {
     "babel-preset-es2015-script": "^1.1.0",
@@ -31,6 +33,8 @@
   "dependencies": {
     "deepmerge": "^0.2.10",
     "html-entities": "^1.2.0",
-    "redux": "^3.5.2"
-  }
+    "redux": "^3.5.2",
+    "snyk": "^1.316.2"
+  },
+  "snyk": true
 }
